@@ -1,0 +1,98 @@
+{% extends "base_template.html" %}
+{% block title %}Registro de usuarios{% endblock %}
+{% block content %}
+
+<br>
+<hr>
+<header> 
+    <h1 class="titulo">RESULTADOS</h1>
+</header>
+
+<main style="margin-top:3%; margin-left: 10%; margin-right: 10%; padding-bottom: 3%; padding-right:3%; padding-left:3%">
+    
+      <!-- Header -->
+    <header class="w3-container" style="padding-top:5px">
+      <h5><b><i class="fa fa-check"></i> Prueba {{resultado}}</b></h5>
+    </header>
+  
+    <div class="w3-row-padding w3-margin-bottom">
+      <div class="w3-quarter">
+        <div class="w3-container w3-red w3-padding-16">
+          <div class="w3-left"><i class="fa fa-question w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>{{cantidad}}</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Preguntas</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-blue w3-padding-16">
+          <div class="w3-left"><i class="fa fa-clock-o w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>{{tiempoResTotal}} minutos</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Tiempo</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-teal w3-padding-16">
+          <div class="w3-left"><i class="fa fa-level-up w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>{{niveles}}</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Niveles</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-orange w3-text-white w3-padding-16">
+          <div class="w3-left"><i class="fa fa-percent w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>{{ponderacion}}%</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Ponderación</h4>
+        </div>
+      </div>
+    </div>
+      
+    <style>
+            .linkButton:link, a:visited {
+              background-color: #f44336;
+              color: white;
+              padding: 14px 25px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+            }
+            
+            .linkButton:hover, a:active {
+              background-color: red;
+            }
+    </style>
+
+    <fieldset>
+      <a href="home" style="border-radius: 20px;" class="btnSend w3-btn w3-block w3-dark-grey">Volver</a>
+    </fieldset>
+               
+                
+    
+
+    <br>
+
+    <fieldset>
+      <form action="result" method="post">
+        
+        <input class="btnSend w3-btn w3-block w3-red" type="submit" id="send-result" name="result" 
+        value="Descargar prueba [{{nombreFile}}]"/>
+
+      </form>
+  </fieldset>
+  
+    
+      
+    </main>
+
+{% endblock %}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+
+
+
+<!------------------------------------------------------------------------------------------------>
+
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
+
+  .titulo {
+  text-align: center;
+}
+
+*{
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+main {
+  background-color: rgb(219, 216, 226);
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top:2%;
+  border-radius: 20px;
+
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  
+}
+
+footer{
+  text-align: center;
+}
+
+.btnSend{
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+}
+
+.btnlogin {
+
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+}
+
+input, select {
+  
+  margin: 0px 0px 0px 0px /*ARRIBA IZQUIERDA ABAJO*/
+  
+}
+
+.pregunta1Label {
+  margin-right: 4px;
+}
+
+fieldset {
+  margin-top: 15px;
+  border: 0px none white;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+body {
+  background-image: url(https://images.unsplash.com/photo-1515549832467-8783363e19b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=282&q=80);
+}
+
+label {
+  text-align: center;
+}
+
+legend {
+  
+  padding-top: 20px;
+  padding-bottom: 20px; 
+  
+}
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns:100px 300px;
+  grid-template-rows: 40px 5px;
+}
+
+
+.check {
+  margin-left: 20px
+}
+
+.pregunta1L {
+  margin-right: 20px;
+}
+
+.pL {
+  margin-right: 16px;
+}
+
+li {
+  margin-top: 10px
+}
+
+.l1 {
+  margin-top: -15px;
+}
+
+
+  </style>
+
+
+<a href="help">Ayuda</a>
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-dark-grey w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">
+      
+      <img src="{{url_for('static', filename='zigmap.png')}}" alt="" style="width: 3.5%"> GENERADOR</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+      <a href="disponibles" class="w3-bar-item w3-button"><i class="fa fa-list-ol"></i> LISTADO DE PREGUNTAS</a>
+      <a href="pruebas" class="w3-bar-item w3-button"><i class="fa fa-list-ul"></i> LISTADO DE PRUEBAS</a>
+      <a href="newQ" class="w3-bar-item w3-button"><i class="fa fa-plus"></i> AGREGAR PERGUNTA</a>
+      <a href="help" class="w3-bar-item w3-button"><i class="fa fa-question-circle"></i> AYUDA</a>
+      <a href="about" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> SOBRE</a>
+      <a href="/" class="w3-bar-item w3-button"><i class="fa fa-user"></i> USUARIO</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+
+
+
+{% block content %}
+{% endblock %}
+
+
+
+
+
+
+<!------------------------------------------------------------------------------->
+
+
+
+
+
+<style>
+
+     .bg-grey {
+        background: #292929;
+     }
+     .logo-footer {
+        margin-bottom: 40px;
+     }
+     footer {
+            color: grey;
+     }
+     footer p, a {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+footer h6 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 40px;
+    position: relative;
+}
+footer h6:after {
+    position: absolute;
+    content: "";
+    background: grey;
+    width: 12%;
+    height: 1px;
+    left: 0;
+    bottom: -20px;
+}
+     .btn-footer {
+                 color: grey;
+              
+                text-decoration: none;
+                border: 1px solid;
+                border-radius: 43px;
+                font-size: 13px;
+                padding: 7px 30px;
+                line-height: 47px;
+     }
+     .btn-footer:hover {
+                
+                text-decoration: none;
+               
+     }
+    .form-footer input[type="text"] {
+        border: none;
+    border-radius: 16px 0 0 16px;
+    outline: none;
+    padding-left: 10px;
+    
+}
+::placeholder {
+    font-size: 10px;
+    padding-left: 10px;
+    font-style: italic;
+}
+ .form-footer input[type="button"] {
+    border: none;
+    background:#232323;
+        margin-left: -5px;
+    color: #fff;
+    outline: none;
+    border-radius: 0 16px 16px 0;
+    padding: 2px 12px;
+}
+     .social .fa {
+    color: grey;
+    font-size: 22px;
+    padding: 10px 15px;
+    background: #3c3c3c;
+}
+     footer ul li {
+    list-style: none;
+    display: block;
+}
+  footer ul  {
+   padding-left: 0;
+}
+footer ul  li a{
+  text-decoration: none;
+  color: grey;
+  text-decoration:none;
+}
+a:hover {
+    text-decoration: none;
+    color: #f5f5f5 !important;
+    
+}
+.logo-part {
+    border-right: 1px solid grey;
+    height: 100%;
+    }
+
+</style>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-center w3-margin-top">
+    <p>Nuestras redes sociales.</p>
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>ZIGMAP. Todos los derechos reservados<a href="https://www.w3schools.com/w3css/default.asp" target="_blank"></a></p>
+  </footer>
+
+</body>
+
+</html>

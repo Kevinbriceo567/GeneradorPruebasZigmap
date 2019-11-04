@@ -1,0 +1,171 @@
+
+{% extends "base_template.html" %}
+{% block title %}Generador{% endblock %}
+{% block content %}
+
+<!--nombreAsig, nuevoNiv, nuevoTiempo, nuevoTipo, nuevoCont, nuevaFecha, nuevaUnidad, nuevaSolucion-->
+
+<br>
+<hr>
+<header> 
+    <h1 class="titulo">NUEVA PREGUNTA</h1>
+</header>
+
+
+
+
+<main>
+  
+        <form action="newQ" method="post" id="newQ">
+                  
+                 
+            <fieldset>
+                         
+                <div class="grid">
+                    <div class="a">
+                        <label for="nombreA">Asignatura</label>
+                    </div>
+    
+                    <div class="d">
+                        <select name="nombreA" id="nombreA">
+                            <option value="Programación I">Programación I</option>
+                            <option value="Programación II">Programación II</option>
+                        </select>
+                    </div>
+                </div>
+                      
+            </fieldset>
+          
+            <fieldset>
+                <div class="grid">
+                      
+                    <div class="a">
+    
+                        <label class="pregunta1L" for="">Nivel Taxonómico</label>
+    
+                    </div>
+          
+                    <div class="b">
+                        <select name = "nivelP" id = "nivelP">
+          
+                        <option value="Recordar">Recordar</option>
+                                              <option value="Entender">Entender</option>
+                                              <option value="Aplicar">Aplicar</option>
+                                              <option value="Analizar">Analizar</option>
+                                              <option value="Evaluar">Evaluar</option>
+                                              <option value="Crear">Crear</option>
+                        </select>
+                    </div>                
+                                   
+                </div>
+          
+          
+                </fieldset>
+                         
+                         
+                <fieldset>
+          
+          
+                    <div class="grid">
+                      
+                        <div class="a">
+                            <label class="pregunta1L" for="">Tipo de pregunta</label>
+                        </div>
+          
+                        <div class="b">
+                            <select name = "tipoP" id = "tipoP">
+          
+                                <option value="COMPOSICIÓN">Composición</option>
+                            <option value="RESPUESTA CORTA">Respuesta corta</option>
+                          <option value="TEXTO INCOMPLETO">Texto incompleto</option>
+          <option value="CORRESPONDENCIA O EMPAREJAMIENTO">Correspondencia</option>
+                 <option value="OPCIÓN MÚLTIPLE">Opción múltiple</option>
+                           <option value="VERDADERO O FALSO">Verdadero o falso</option>
+          <option value="ANALOGÍAS O DIFERENCIAS">Analogías - Diferencias</option>
+          <option value="INTERPRETACIÓN">Interpretación</option>
+                            </select>
+                        </div>                
+                                   
+                    </div>
+          
+          
+                </fieldset>
+                    
+                <fieldset>
+                     
+                    <div class="grid">
+                        <div class="a">
+                            <label for="nombreP">Contenido</label>
+                         
+                        </div>
+    
+                    <div class="b">
+                       <textarea rows="4" cols="35" name="contenidoP" id="contenidoP" form="newQ"></textarea>
+                    </div>
+                       
+          
+                       
+                    </div>
+                  
+                  <br>
+                  <br>
+                  <br>
+                         
+                </fieldset>
+          
+                <fieldset>
+                     
+                    <div class="grid">
+                        <div class="a">
+                            <label for="nombreP">Solución</label>
+                         
+                        </div>
+    
+                    <div class="b">
+                       <textarea rows="2" cols="35" name="solucionP" id="solucionP" form="newQ"></textarea>
+                    </div>
+                       
+          
+                       
+                    </div>
+                         
+                </fieldset>
+    
+                <fieldset>
+                  
+                  <br>
+    
+          
+                     
+                    <div class="grid">
+                       
+                    <div class="a"><label for="tiempoP">Tiempo</label></div>
+                    <div class="b"><input type="number" name="tiempoP" id="tiempoP" placeholder="En minutos"></div>
+                      </div>
+                      
+                      <div class="grid">
+                    <div class="a"><label for="nombreUni">Unidad</label></div>
+           
+                    <div class="b"><select name="unidadP" id="unidadP">Unidad
+                       <option value="unidad1">Unidad 1</option>
+                       <option value="unidad2">Unidad 2</option>
+                       </select>        
+                    </div>
+                    </div>
+          
+                     
+                     </fieldset>
+           
+                   <fieldset>
+                     <input class="btnSend w3-btn w3-block w3-dark-grey" type="submit" id="send-newQ" name="newQ" value="Crear"/>
+                   </fieldset>
+                   
+                 </form>
+            
+            </main>
+    
+
+
+
+
+{% endblock %}

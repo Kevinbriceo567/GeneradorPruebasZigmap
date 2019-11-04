@@ -1,0 +1,113 @@
+{% extends "base_template.html" %}
+{% block title %}Generador{% endblock %}
+{% block content %}
+
+<style>
+
+
+.titulo {
+  text-align: center;
+}
+
+ h3{
+  margin-left: 30px;
+  margin-right:30px;
+  text-align: center;
+}
+
+ .ayuda{
+  text-align: center;  
+ }
+
+.intro{
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center; 
+}
+
+.subtitle{
+  margin-top: 15px;
+  font-size: 1.9em;
+  margin-left: 20px
+}
+
+.introC{
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px; 
+  
+}
+
+ body {
+  background-image: url(https://images.unsplash.com/photo-1515549832467-8783363e19b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=282&q=80);
+}
+
+footer{
+  margin-top: 40px;
+  text-align: center;
+}
+
+
+
+</style>
+
+
+<br>
+<hr>
+<header>
+    
+    <h1 class="titulo">AYUDA</h1>
+  
+</header>
+
+<main style="margin-left:10%; margin-right:10%">
+
+<div class="intro">
+  <p class = "ayuda">¿Un poco perdido?</p> 
+    <h3 class="enunciado">¡El Generador de Pruebas es una herramienta que permitirá al docente crear evaluaciones tomando en cuenta diferentes atributos de sus preguntas!</h3>
+    <p class = "intro"> Como lo son la asignatura a la que pertenecen, su unidad, su fecha de último uso y <b>¡CHACHAM!</b> el toque especial <br><b>SU NIVEL TAXONÓMICO</b> 
+    <br>Tal vez te estarás preguntando "¿y a qué se refiere con el nivel taxonómico?", esto lo abordaremos más adelante. 
+    <br>Veamos cómo funciona el Generador de Pruebas según las partes que lo dividen. </p>
+</div>
+
+<div>
+<legend class ="subtitle"> Carrera:</legend> 
+<p class = "introC"> Esta sección se encarga de definir los atributos  que estarán en la cabecera de la prueba, como lo son el <b>Nombre</b> de la carrera a la que pertenece y la <b>Facultad</b> en la que se rinde. Para efectos prácticos en el generador esta información no es realmente relevante, ¡Pero sí que lo es para la prueba ya impresa! </p>
+</div>
+
+<div>
+<legend class ="subtitle"> Asignatura:</legend>
+<p class = "introC">
+  Aquí se encuentra el <b>Nombre</b> de la <b>Asignatura</b> y debajo de este su <b>ID</b>entificador (algo así como su Registro Único Nacional pero en el mundo de las asignaturas c;).
+</p>
+</div>
+
+<div>
+<legend class ="subtitle"> Curso:</legend>
+<p class = "introC">Acá solo se encuentra el <b>Cod</b>igo del curso al que se está evaluando. Este dato tiene la información del grupo de alumnos específico que está rindiendo la prueba.
+</p>
+</div>
+<div>
+ <legend class ="subtitle"> Prueba:</legend>
+<p class = "introC"> !Acá viene la magia! <br> <br>En esta sección se coloca primero el <b>Nombre</b> de la prueba, es decir, nombrar a la prueba según la ponderación que tendrá dentro de la asignatura y el número de pruebas de este tipo que se han evaluado en el curso (por ejemplo: "Control I", "Solemne II", etc.). <br><br> Luego tenemos la <b>Fecha</b> en la que se realizará la prueba, esto es sumaente importante ya que el generador solo aprueba preguntas que el docente no haya usado en al menos dos años. <br><br> Abajo la <b>Ponderación</b> (en porcentaje) que tendrá la prueba dentro del marco de la asignatura en la que se realizará. <br><br> A continuación está la <b>Unidad</b> a la que corresponden las preguntas, este dato es sumamente importante debido a que el generador debe examinar las preguntas que posee, para tomar en cuenta solo las que pertenecen a los temas que se requieren evaluar. <br> <br>Por último se elige la cantidad de preguntas que se deben evaluar. </p>
+
+<div>
+  <legend class ="subtitle"> Pregunta:</legend>
+      <p class = "introC">Lo último que se debe elegir es el nivel taxonómico que se desea evaluar en cada pregunta; y como lo prometido es deuda, es momento de definir a qué nos referimos con lo de "<b>Nivel Taxonómico</b>". La <b>taxonomía</b> es la ciencia que trata de los principios, métodos y fines de la clasificación, al mencionarlo junto con <b>Nivel</b> queremos hacer referencia a la <b>"Taxonomía de Bloom"</b>.
+  </p>
+<p class = "introC"> <img src="{{url_for('static', filename='bloom.png')}}" align="right"> <br><br>Bloom fue un psicólogo educativo estadounidense el cual creó una taxonomía de niveles de aprendizaje según los objetivos educativos. <br> <br>Fue hecha para crear un marco de referencia en la categorización de lo que se espera que los estudiantes aprendan. La categorización se logra con el análisis del proceso cognitivo del estudiante usando seis niveles taxonómicos, los niveles taxonómicos van desde lo más sencillo a lo más complejo, y cada nivel superior depende de los conocimientos adquiridos
+en los niveles anteriores. </p> 
+</div>
+
+ <p class = "introC"><br> <br>Al momento de elegir el <b>Nivel Taxonómico</b> el generador buscará entre sus preguntas las que correspondan al nivel solicitado, luego se cerciorará de que la pregunta cumpla con todos los requisitos anteriormente pedidos (como la <b>Carrera</b>, la <b>Asignatura</b> y la <b>Unidad</b>) y que <b>la pregunta no haya sido usada en pruebas anteriores en al menos 2 años (730 días)</b> y elegirá una para colocar en ese espacio. <br> 
+   </p>
+<h3>¡Y YA ESTÁS LISTO PARA GENERAR TU PRUEBA!</h3>
+<p class = "intro"> A HACER SUFRIR A ESOS BASTARDOS </p>
+
+
+
+
+</main>
+
+
+{% endblock %}

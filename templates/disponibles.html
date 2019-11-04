@@ -1,0 +1,56 @@
+
+{% extends "base_template.html" %}
+{% block title %}Generador{% endblock %}
+{% block content %}
+  
+
+<br>
+<hr>
+<header> 
+    <h1 class="titulo">PREGUNTAS DISPONIBLES</h1>
+</header>
+
+
+<main>
+
+    <p>En esta sección podrás encontrar las preguntas que se encuentran disponibles para aparecer en la prueba, es decir, las preguntas que no hayan salido en pruebas anteriores en al menos dos años.</p>
+
+
+
+    {%for preguntas in disponibles%}
+    <div class="w3-container">
+            <h5>Pregunta [{{preguntas.get_tipo()}}]</h5>
+            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+              <tr>
+                <td>Nivel Taxonómico</td>
+                <td>{{preguntas.get_nivel()}}</td>
+              </tr>
+              <tr>
+                <td>Unidad</td>
+                <td>{{preguntas.get_unidad()}}</td>
+              </tr>
+              <tr>
+                <td>Aignatura</td>
+                <td>{{preguntas.get_nombreAsig()}}</td>
+              </tr>
+              <tr>
+                <td>Tiempo de Resolución</td>
+                <td>{{preguntas.get_tiempo()}}</td>
+              </tr>
+              <tr>
+                <td>Tipo de Pregunta</td>
+                <td>{{preguntas.get_tipo()}}</td>
+              </tr>
+              <tr>
+                <td>Contenido</td>
+                <td>{{preguntas.get_contenido()}}</td>
+              </tr>
+            </table><br>
+          </div>
+    {%endfor%}
+
+</main>
+
+
+
+{% endblock %}

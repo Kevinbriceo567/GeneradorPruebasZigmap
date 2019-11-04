@@ -1,0 +1,141 @@
+{% extends "base_template.html" %}
+{% block title %}Generador{% endblock %}
+{% block content %}
+  
+<br>
+<hr>
+  <header>  
+      <h1 class="titulo">CREAR PRUEBA</h1>
+  </header>
+    
+    
+    <main>
+      
+      <form action="home" method="post">
+        
+       <fieldset>
+  
+         <legend class="subtitle">CARRERA</legend>
+  
+            
+         
+     <div class="grid">
+       
+    <div class="a"><label for="">Nombre</label></div> <!-- cada uno de los ítems del grid -->
+       
+    <div class="b">
+      <select name="nombreC" id="nombreC">
+           <option value="Ing. en Computación e Informática.">Ing. Comp. e Inf.</option>
+           <option value="Ing. en Telecomunicaciones">Ing. Telecomunicaciones</option>
+           <option value="Ing. en Gestión Informática">Ing. Gestión Informática</option>
+      </select>
+           
+      </div>
+         
+           <div class="c">
+         <label for="facultad">Facultad</label>
+         </div>
+         
+         <div class="d">
+         <select name="facultad" id="facultad">
+           <option value="Ingeniería">Ingeniería</option>
+         </select>
+  </div>
+        </fieldset>
+        
+        
+            <fieldset>
+         <legend class="subtitle">ASIGNATURA</legend>
+              
+           <div class="grid">
+           <div class="a"><label for="nombreA">Nombre</label></div>
+           <div class="d">
+              <select name="nombreA" id="nombreA">
+                  <option value="Programación I">Programación I</option>
+                  <option value="Programación II">Programación II</option>
+              </select>
+                     <br>
+             </div>
+             <div class="c"><label for="idA">Id</label></div>
+             <div class="d"><input type="text" name="idA" id="idA"></div>
+             </div>
+           
+        </fieldset>
+        
+        <fieldset>
+          
+          <legend class="subtitle">CURSO</legend>
+          
+          <div class="grid">
+            
+            <div class="a">
+              <label for="cod">Cod</label>
+            </div>
+            
+            <div class="b">
+              <input type="text" name="cod" id="cod" required>
+              
+            </div>
+          
+          </div>
+          
+          <legend class="subtitle">PRUEBA</legend>
+          
+          <div class="grid">
+            
+            <div class="a">
+              <label for="nombreP">Nombre</label>
+              
+            </div>
+          <div class="b">
+            <input type="text" name="nombreP" id="nombreP" placeholder="Ej: Solemne I, Control II" name="nombreP" id="nombreP" required>
+            
+            </div>
+            
+          <div class="c"><label for="fechaP">Fecha</label></div>    
+          <div class="d"><input type="date" name="fechaP" id="fechaP" required>
+            
+            </div>
+          </div>
+          
+          <br/>
+          <br />
+          
+          <div class="grid">
+            
+          <div class="a"><label for="ponderacionP">Ponderación</label></div>
+          <div class="b"><input type="number" name="ponderacionP" id="ponderacionP" placeholder="En %"></div>
+          <div class="c"><label for="nombreUni">Unidad</label></div>
+
+          <div class="d"><select name="unidad" id="unidad">Unidad
+            <option value="unidad1">Unidad 1</option>
+            <option value="unidad2">Unidad 2</option>
+            
+            </select>
+            <input class="check" name="all" id="all" type="checkbox"><label for="Todas">Todas</label>        
+          </div>
+          </div>
+
+            <br/>
+            <br />
+
+
+            <div class="grid">
+            
+              <div class="a"><label for="cantidadP">Cantidad de Preguntas</label></div>
+              <div class="b"><input type="number" name="cantidadP" id="cantidadP" placeholder="" required></div>                
+                
+                </div>
+          
+          </fieldset>
+
+        <fieldset>
+          <input class="btnSend w3-btn w3-block w3-dark-grey" type="submit" id="send-home" name="home" value="Continuar"/>
+        </fieldset>
+        
+      </form>
+      
+    </main>
+    
+
+{% endblock %}

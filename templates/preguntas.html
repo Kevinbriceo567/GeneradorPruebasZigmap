@@ -1,0 +1,85 @@
+{% extends "base_template.html" %}
+{% block title %}Generador{% endblock %}
+{% block content %}
+
+
+<br>
+<hr>
+<header> 
+    <h1 class="titulo">GENERADOR DE PRUEBAS</h1>
+</header>
+
+
+<main>
+
+    <form action="preguntas" method="post">
+        
+       <fieldset>
+           
+            <legend class="subtitle">NIVELES TAXONÓMICOS</legend>
+<!--
+            <input type="text" name="cant" id="cant" value="{{cantidad}}"></div>
+
+            <input type="text" name="fechaA" id="fechaA" value="{{fechaP}}"></div>
+
+            <input type="text" name="unidadP" id="unidadP" value="{{unidad}}"></div>
+
+            <input type="text" name="ponderacionP" id="ponderacionP" value="{{ponderacionP}}"></div>
+
+            <input type="text" name="nombreP" id="nombreP" value="{{nombreP}}"></div>
+
+            <p>{{indices}}</p>-->
+
+            <ul> 
+            <!-- For loop logic of jinja template -->
+                {%for i in range(0, cantidad)%}
+
+                    <li>
+
+                        <div class="grid">
+            
+                            <div class="a">
+                                <label class="pregunta1L" for="">Pregunta {{i+1}}</label>
+                            </div>
+
+                            <div class="b">
+                                <select name = "pregunta{{i}}" id = "pregunta{{i}}">
+
+                                        <option value="Recordar">Recordar</option>
+                                        <option value="Entender">Entender</option>
+                                        <option value="Aplicar">Aplicar</option>
+                                        <option value="Analizar">Analizar</option>
+                                        <option value="Evaluar">Evaluar</option>
+                                        <option value="Crear">Crear</option>
+                                </select>
+                            </div>                
+                             
+                        </div>
+                    
+                    </li>
+
+                {%endfor%}
+        
+            </ul> 
+
+        </fieldset>
+
+        <p>Generar con:</p>
+        <input type="radio" name="generate" value="latex" checked> LaTex [Recomendado]<br>
+        <input type="radio" name="generate" value="pdfkit"> PDFKit<br>
+
+        <fieldset>
+
+            <input class="btnSend w3-btn w3-block w3-dark-grey" type="submit" id="send-preguntas" name="preguntas" value="Generar"/>
+        
+        </fieldset>
+
+    </form>
+
+</main>
+
+
+
+
+
+{% endblock %}
