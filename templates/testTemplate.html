@@ -9,14 +9,14 @@
 
 <style>
 body {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding-left: 5%;
   padding-right: 5%;
-  padding-top:5%;
+  padding-top:3%;
 }
 
 p {
-  border: 1px solid black
+  border: 1px solid white
 }
 
 *{
@@ -33,7 +33,7 @@ img {
 
 
 .grid {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   display: grid;
   width: 100%;
   grid-template-columns:385px 300px;
@@ -41,13 +41,13 @@ img {
 }
 
 .title {
-  border: 1px solid green;
+  /*border: 1px solid green;*/
   margin-right:8%;
   font-size:1.6em;
 }
 
 .section {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
   font-size: 1.5em;
   margin-bottom: -12px;
 }
@@ -55,26 +55,21 @@ img {
 
 
 <body>
-
-		<img src="https://brandpalettes.com/wp-content/uploads/2018/10/Apple.png" alt="">
+		<img src="https://i.imgur.com/bBNb7aL.png" alt="">
 
 		<p class = "title" style="text-align:center;"><b>{{nombreP}}</b></p>
-		<p style="text-align:right; position:absolute;right:75px;margin:0px;top:76px"><b>{{fechaP}}</b></p>
-		<p style="text-align:center;margin-top:-20px;margin-bottom:2px"><b>{{nombreA}}</b></p>
+		<p style="text-align:right; position:absolute;right:50px;margin:0px;top:76px"><b>{{fechaP}}</b></p>
+		<p style="text-align:center;margin-top:-20px;margin-bottom:2px"><b>{{nombreA}}</b><br>{{unidad}}</p>
 		
-		
+		<p style="text-align:right; position:absolute;right:50px;margin:0px;top:108px"><b>Curso</b> {{cod}}</p>
+
+		<p style="text-align:right; position:absolute;right:50px;margin:0px;top:126px"><b>Ponderación</b> {{pond}}%</p>
+
 		<div class="grid">
 		  <div class="a"><b>Facultad de {{facultad}}</b></div>
-		  
-		  <div class="b" style="text-align:right;padding:1px">{{unidadBonita}}</div>
+		
 		</div>
 		
-		<div class="grid">
-		  <div class="a">Rut: _____________________</div>
-		  
-		  <div class="b" style="text-align:right;padding:1px">Curso {{cod}}</div>
-		</div>
-		</div>
 		
 		
 		<!--
@@ -93,9 +88,11 @@ img {
 		<br>
 		<br>
 		-->
-		<p style="margin-top:-1px;">Nombre: ________________________________</p>
+		<p style="margin-bottom:1px;margin-top: -5px;">Rut: _____________________</p>
+
+		<p style="margin-bottom:1px;margin-top: -3px;">Nombre: ________________________________</p>
 		
-		<p style="margin-top:-16px;">Nota: ___________</p>
+		<p style="margin-bottom:1px;margin-top: -3px;">Nota: ___________</p>
 		
 		
 		<p class="section">Indicaciones</p>

@@ -201,17 +201,20 @@ class Prueba(object):
             
             # Add branch information
             branch = MiniPage(width=NoEscape(r"0.35\textwidth"), pos='t!', align='r')
-            branch.append("Curso")
+
+            if self.__unidad == "unidad1":
+                branch.append(bold("Unidad: 1"))
+            else:
+                branch.append(bold("Unidad: 2"))
             branch.append(LineBreak())
+
+            branch.append(bold("Curso: "))
             branch.append(bold(Curso.get_cod()))
             branch.append(LineBreak())
 
-            if self.__unidad == "unidad1":
-                branch.append(bold("Unidad 1"))
-            else:
-                branch.append(bold("Unidad 2"))
-            branch.append(LineBreak())
 
+            branch.append(bold("Ponderación: "))
+            branch.append(bold(self.__ponderacion + "%"))
             branch.append(LineBreak())
 
 
@@ -277,14 +280,10 @@ class Prueba(object):
 
     def generarPDFKit(self, Carrera, Asignatura, Curso, listaPreguntas, aleatorio):
 
+        from flask import Flask, render_template, url_for
         import pdfkit
         from jinja2 import Environment, FileSystemLoader
         from pathlib import Path
-
-        env = Environment(loader=FileSystemLoader("templates/", encoding="utf-8"))
-        template = env.get_template("testTemplate.html")
-
-        print("PDFKITTTT")
 
         unidadBonita = ""
         if self.__unidad == "unidad 1":
@@ -293,34 +292,52 @@ class Prueba(object):
             unidadBonita = "Unidad 2"
 
         prueba = {
-            'nombreA': Asignatura.get_nombreA(),
-            'cod': Curso.get_cod(),
-            'listaPreguntas': listaPreguntas,
-            'unidad': unidadBonita,
-            'nombreP': self.__nombre,
-            'fechaP': self.__fecha,
-            'facultad': Carrera.get_facultad()
+                'nombreA': Asignatura.get_nombreA(),
+                'cod': Curso.get_cod(),
+                'listaPreguntas': listaPreguntas,
+                'unidad': unidadBonita,
+                'nombreP': self.__nombre,
+                'fechaP': self.__fecha,
+                'facultad': Carrera.get_facultad(),
+                'pond': self.__ponderacion
 
-        }
+            }
 
-        html = template.render(prueba)
-        print(html)
+        try:
+            env = Environment(loader=FileSystemLoader("templates/", encoding="utf-8"))
+            template = env.get_template("testTemplate.html")
 
-        nombreFile = str(self.__nombre) + " - " + self.get_fecha() + " - " + str(aleatorio) + "PDFKit"
 
-        
-        f = open("tests/" + nombreFile + ".html", "w", encoding="utf-8")
-        f.write(html)
-        f.close()
+            html = template.render(prueba)
+            print(html)
 
-        f = open(nombreFile + ".txt", "w")
-        f.write(html)
-        f.close()
-        
+            nombreFile = str(self.__nombre) + " - " + self.get_fecha() + " - " + str(aleatorio) + "PDFKit"
 
-        p = Path("wkhtmltopdf/bin/wkhtmltopdf.exe").resolve()
-        print(p)
+            f = open("tests/" + nombreFile + ".html", "w", encoding="utf-8")
+            f.write(html)
+            f.close()
 
-        config = pdfkit.configuration(wkhtmltopdf=p)
+            p = Path("wkhtmltopdf/bin/wkhtmltopdf.exe").resolve()
+            print(p)
+            config = pdfkit.configuration(wkhtmltopdf=p)
+            pdfkit.from_file("tests/" + nombreFile + ".html", "tests/" + nombreFile + ".pdf", configuration=config)
 
-        pdfkit.from_file("tests/" + nombreFile + ".html", "tests/" + nombreFile + ".pdf", configuration=config)
+        except BaseException as e:
+            env = Environment(loader=FileSystemLoader("../templates/", encoding="utf-8"))
+            template = env.get_template("testTemplate.html")
+
+
+            html = template.render(prueba)
+            print(html)
+
+            nombreFile = str(self.__nombre) + " - " + self.get_fecha() + " - " + str(aleatorio) + "PDFKit"
+
+
+            f = open("../tests/" + nombreFile + ".html", "w", encoding="utf-8")
+            f.write(html)
+            f.close()
+
+            p = Path("../wkhtmltopdf/bin/wkhtmltopdf.exe").resolve()
+            print(p)
+            config = pdfkit.configuration(wkhtmltopdf=p)
+            pdfkit.from_file("../tests/" + nombreFile + ".html", "tests/" + nombreFile + ".pdf", configuration=config)

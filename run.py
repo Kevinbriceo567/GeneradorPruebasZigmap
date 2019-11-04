@@ -134,7 +134,35 @@ def home():
 
         nivelesTax = []
 
-        return render_template('preguntas.html', cantidad = cantidad)
+
+                # BUSCANDO DISPONIBLES
+        disponibles = {"Entender":0, "Recordar":0, "Aplicar":0, "Analizar":0, "Evaluar":0, "Crear":0}
+        fechaHoy = date.today() # date(year, month, day)
+
+        for p in preguntasRepo:
+        
+            # FECHA ULTIMO USO
+            fechaUlt = p.get_fecha()
+
+            # COMPROBACION DE TIEMPO
+            restaFechas = str(fechaHoy - fechaUlt)
+
+            print("---------------------------------" + restaFechas + "-------------------------------")
+
+            try:
+                if int(restaFechas.rstrip(" days, 0:00:00")) > 730:
+                    
+                    if (unidadP == p.get_unidad() and nombreA == p.get_nombreAsig()) or (todasCheck == 'on' and nombreA == p.get_nombreAsig()):
+                        nivelTax = p.get_nivel()
+
+                        disponibles[nivelTax] += 1
+
+            except ValueError as e:
+                print(p.get_nivel() + " USADA")
+
+
+
+        return render_template('preguntas.html', cantidad = cantidad, disponibles = disponibles)
 
         next = request.args.get('next', None)
         
@@ -353,11 +381,15 @@ def preguntas():
 
         generate = request.form['generate']
 
+
+        # REVISANDO MOTOR DE GENERACIÓN
         try:
             cLatex = request.form['cLatex']
             cPDFKit = request.form['cPDFKit']
         except BaseException as e:
             print(e)
+
+
 
         for i in range(0, cantidad):
             indices.append('pregunta' + str(i))
@@ -388,6 +420,8 @@ def preguntas():
                             # COMPROBACION DE TIEMPO
                             restaFechas = str(fechaAct - fechaUlt)
 
+                            print("---------------------------------" + restaFechas + "-------------------------------")
+
                             if int(restaFechas.rstrip(" days, 0:00:00")) > 730: # 2019-10-08 | COMPROBAMOS LA FECHA
                                     
                                 reportes.append("FECHA RECONOCIDA")
@@ -401,7 +435,7 @@ def preguntas():
 
                                     tiempoResTotal += int(p.get_tiempo())
 
-                                #p.set_fecha(fechaAct)
+                                    p.set_fecha(date(int(anno), int(mes), int(dia))) # ACTUALIZAMOS LA FECHA
 
 
         if cantidad == len(listaPreguntas):

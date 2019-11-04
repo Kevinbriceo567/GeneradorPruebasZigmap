@@ -135,7 +135,7 @@ ______ La siguiente línea de código permite iniciar la creación de una funci�
 ______ La siguiente línea de código nos permite crear un archivo .txt en Python: "f = open ('holamundo.txt','w')".
 ______ La siguiente línea de código nos permite crear una función en Python: "Root = Tk()"."""
 
-pregunta11 = Pregunta("Programación I", "Analizar", 5, "VERDADERO Y FALSO", contenidoP11, date(1900,1, 3), "unidad2", "F, V, V, F")
+pregunta11 = Pregunta("Programación I", "Evaluar", 5, "VERDADERO Y FALSO", contenidoP11, date(1900,1, 3), "unidad2", "F, V, V, F")
 
 # PREGUNTA 12
 

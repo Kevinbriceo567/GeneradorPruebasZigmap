@@ -45,12 +45,12 @@
                             <div class="b">
                                 <select name = "pregunta{{i}}" id = "pregunta{{i}}">
 
-                                        <option value="Recordar">Recordar</option>
-                                        <option value="Entender">Entender</option>
-                                        <option value="Aplicar">Aplicar</option>
-                                        <option value="Analizar">Analizar</option>
-                                        <option value="Evaluar">Evaluar</option>
-                                        <option value="Crear">Crear</option>
+                                        <option value="Recordar">Recordar [{{disponibles['Recordar']}}]</option>
+                                        <option value="Entender">Entender [{{disponibles['Entender']}}]</option>
+                                        <option value="Aplicar">Aplicar [{{disponibles['Aplicar']}}]</option>
+                                        <option value="Analizar">Analizar [{{disponibles['Analizar']}}]</option>
+                                        <option value="Evaluar">Evaluar [{{disponibles['Evaluar']}}]</option>
+                                        <option value="Crear">Crear [{{disponibles['Crear']}}]</option>
                                 </select>
                             </div>                
                              
@@ -65,8 +65,8 @@
         </fieldset>
 
         <p>Generar con:</p>
-        <input type="radio" name="generate" value="latex" checked> LaTex [Recomendado]<br>
-        <input type="radio" name="generate" value="pdfkit"> PDFKit<br>
+        <input type="radio" name="generate" value="pdfkit" checked> PDFKit<br>
+        <input type="radio" name="generate" value="latex" > LaTex<br>
 
         <fieldset>
 
