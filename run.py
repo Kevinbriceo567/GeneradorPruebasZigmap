@@ -134,6 +134,9 @@ def home():
 
         nivelesTax = []
 
+        if todasCheck == 'on':
+            unidadP = "Unidades: 1 & 2"
+
 
                 # BUSCANDO DISPONIBLES
         disponibles = {"Entender":0, "Recordar":0, "Aplicar":0, "Analizar":0, "Evaluar":0, "Crear":0}
