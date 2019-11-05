@@ -424,21 +424,27 @@ def preguntas():
 
                             if int(restaFechas.rstrip(" days, 0:00:00")) > 730: # 2019-10-08 | COMPROBAMOS LA FECHA
                                     
-                                reportes.append("FECHA RECONOCIDA")
+                                reportes.append(p.get_unidad() + p.get_nivel() + " FECHA RECONOCIDA")
 
                                 if p.get_nivel() not in nivelesTax:
                                     nivelesTax.append(p.get_nivel())
 
-                                if p not in listaPreguntas:
+                                if p not in listaPreguntas and len(listaPreguntas) < cantidad :
+
+                                    reportes.append(p.get_unidad() + p.get_nivel() + " PREGUNTA AGREGADA")
 
                                     listaPreguntas.append(p)
 
                                     tiempoResTotal += int(p.get_tiempo())
 
-                                    p.set_fecha(date(int(anno), int(mes), int(dia))) # ACTUALIZAMOS LA FECHA
+                                else:
+                                    reportes.append(p.get_unidad() + p.get_nivel() + " PREGUNTA NO AGREGADA")
 
 
         if cantidad == len(listaPreguntas):
+
+            for p in listaPreguntas:
+                p.set_fecha(date(int(anno), int(mes), int(dia))) # ACTUALIZAMOS LA FECHA
 
             print("GENERADAAAAAAAAAAAAA")
 
