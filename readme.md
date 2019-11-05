@@ -1,4 +1,5 @@
 # GENERADOR DE EVALUACIONES ESCRITAS
+## ¡El Generador de Pruebas es una herramienta que permitirá al docente crear evaluaciones tomando en cuenta diferentes atributos de sus preguntas!
 
 Este generador está pensado para trabajar basado en la Taxonomía de Bloom.
 Actualmente utiliza dos motores de generación de PDFs
@@ -21,5 +22,3 @@ Actualmente utiliza dos motores de generación de PDFs
 - Generando con LaTeX
   - pyLatex
   - Distribución de LaTeX instalada
-
-## Desarrollado por Willians Briceño 2019 - Todos los derechos reservados
