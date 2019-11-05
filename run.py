@@ -267,9 +267,10 @@ def about():
 def pruebas():
 
     global listaPruebas
+    pruebasCont = len(listaPruebas)
 
     if logded == True:
-        return render_template('pruebas.html', listaPruebas = listaPruebas)
+        return render_template('pruebas.html', listaPruebas = listaPruebas, pruebasCont = pruebasCont)
 
     else:
         return render_template('authorize.html')
