@@ -204,8 +204,10 @@ class Prueba(object):
 
             if self.__unidad == "unidad1":
                 branch.append(bold("Unidad: 1"))
-            else:
+            elif self.__unidad == "unidad2":
                 branch.append(bold("Unidad: 2"))
+            else:
+                branch.append(bold("Unidades: 1 & 2"))
             branch.append(LineBreak())
 
             branch.append(bold("Curso: "))
@@ -286,10 +288,12 @@ class Prueba(object):
         from pathlib import Path
 
         unidadBonita = ""
-        if self.__unidad == "unidad 1":
-            unidadBonita = "Unidad 1"
+        if self.__unidad == "unidad1":
+            unidadBonita = "Unidad: 1"
+        elif self.__unidad == "unidad2":
+            unidadBonita = "Unidad: 2"
         else:
-            unidadBonita = "Unidad 2"
+            unidadBonita = "Unidades: 1 & 2"
 
         prueba = {
                 'nombreA': Asignatura.get_nombreA(),
