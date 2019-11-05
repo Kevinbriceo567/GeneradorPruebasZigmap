@@ -1,21 +1,25 @@
 # GENERADOR DE EVALUACIONES ESCRITAS
 
-Este generador está pensado para trabajar basado en la Taxonomía de Bloom. 
+Este generador está pensado para trabajar basado en la Taxonomía de Bloom.
 Actualmente utiliza dos motores de generación de PDFs
-> PDFKit | 
+
+> PDFKit |
 > LaTeX
 
+## Se necesitan las siguientes librerías:
 
-Se necesitan las siguientes librerías:
----------------
-* Principales
-  * flask
-  * flask_wtf
+- Principales
 
-* Generando con PDFKit
-  * wkhtmltopdf
-  * PDFKit
+  - flask
+  - flask_wtf
 
-* Generando con LaTeX
-  * pyLatex
-  * Distribución de LaTeX instalada
+- Generando con PDFKit
+
+  - wkhtmltopdf
+  - PDFKit
+
+- Generando con LaTeX
+  - pyLatex
+  - Distribución de LaTeX instalada
+
+## Desarrollado por Willians Briceño 2019 - Todos los derechos reservados
