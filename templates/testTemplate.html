@@ -60,7 +60,8 @@ img {
 
 		<p class = "title" style="text-align:center;"><b>{{nombreP}}</b></p>
 		<p style="text-align:right; position:absolute;right:50px;margin:0px;top:76px"><b>{{fechaP}}</b></p>
-		<p style="text-align:center;margin-top:-20px;margin-bottom:2px"><b>{{nombreA}}</b><br>{{unidad}}</p>
+
+		<p style="text-align:center;margin-top:-20px;margin-bottom:2px;"><b>{{nombreA}}</b><br>{{unidad}}</p>
 		
 		<p style="text-align:right; position:absolute;right:50px;margin:0px;top:108px"><b>Curso</b> {{cod}}</p>
 
@@ -89,7 +90,7 @@ img {
 		<br>
 		<br>
 		-->
-		<p style="margin-bottom:1px;margin-top: -5px;">Rut: _____________________</p>
+		<p style="margin-bottom:1px;margin-top: -3px;">Rut: _____________________</p>
 
 		<p style="margin-bottom:1px;margin-top: -3px;">Nombre: ________________________________</p>
 		
@@ -110,7 +111,7 @@ img {
 
         {%for pregunta in listaPreguntas%}
 		
-            <p class="section">Pregunta</p>
+            <p class="section">Pregunta {{listaPreguntas.index(pregunta) + 1}}</p>
             
             <p style="white-space: pre-line;">{{pregunta.get_contenido()}}</p>
 		

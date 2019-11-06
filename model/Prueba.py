@@ -246,7 +246,7 @@ class Prueba(object):
 
 
         for p in listaPreguntas:
-            with doc.create(Section('Pregunta (20 Puntos)')):
+            with doc.create(Section('Pregunta - ' + p.get_tipo())):
 
                 doc.append(p.get_contenido())
 

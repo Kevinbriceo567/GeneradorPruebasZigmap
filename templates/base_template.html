@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='zigmap-icon.ico') }}">
     
 </head>
 
@@ -136,6 +138,7 @@ li {
     <a href="#home" class="w3-bar-item w3-button" style="width: 30%">
       
       <img src="{{url_for('static', filename='zigmap.png')}}" alt="" style="width: 4%"> GENERADOR</a>
+
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
