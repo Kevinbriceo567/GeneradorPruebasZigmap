@@ -100,7 +100,13 @@ class Prueba(object):
 
         header = PageStyle("header") # DEFINIMOS LA VARIABLE CON ESTILO
 
-        image_filename = os.path.join(os.path.dirname(__file__), '../static/zigmap.png') # IMAGEN UNAB
+        #image_filename = os.path.join(os.path.dirname("__file__"), '../static/zigmap.png') # IMAGEN UNAB
+
+        data_folder = os.path.join("../", "static/")
+
+        file_to_open = os.path.join(data_folder, "zigmap.png")
+
+        image_filename = file_to_open
 
         # Generating first page style
         first_page = PageStyle("firstpage")
