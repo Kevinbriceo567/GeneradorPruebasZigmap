@@ -7,7 +7,7 @@ Actualmente utiliza dos motores de generación de PDFs
 > PDFKit |
 > LaTeX
 
-## Se necesitan las siguientes librerías:
+# Se necesitan las siguientes librerías:
 
 - Principales
   - flask (pip)
@@ -23,12 +23,12 @@ Actualmente utiliza dos motores de generación de PDFs
 - En Ubuntu
   - Se recomienda instalar los binarios del archivo [wkhtmltox_0.12.5-1.bionic_amd64.deb]
 
-##LOGIN:
+#LOGIN:
 -user: admin1
 -pass: admin1
 
 
-##Recomendaciones de uso:
+#Recomendaciones de uso:
 - El programa completo fue desarrollado con Windows 10, por lo que la
 mejor recomendación de uso es utilizar este sistema operativo, para
 tener una mejor experiencia como usuario.
