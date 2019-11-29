@@ -102,11 +102,12 @@ class Prueba(object):
 
         #image_filename = os.path.join(os.path.dirname("__file__"), '../static/zigmap.png') # IMAGEN UNAB
 
-        data_folder = os.path.join("../", "static/")
+        #data_folder = os.path.join("../", "static/zigmap.png")
 
-        file_to_open = os.path.join(data_folder, "zigmap.png")
+        #file_to_open = os.path.join(data_folder, "zigmap.png")
 
-        image_filename = file_to_open
+        #image_filename = data_folder
+        image_filename = "zigmap.png"
 
         # Generating first page style
         first_page = PageStyle("firstpage")
@@ -117,7 +118,8 @@ class Prueba(object):
 
             with header_left.create(SubFigure(position='L', width=NoEscape(r'0.10\linewidth'))) as logo_wrapper:
 
-                logo_wrapper.add_image(image_filename, width=NoEscape(r'\linewidth'))
+                print("IMAGEN")
+                #logo_wrapper.add_image('zigmap.png', width=NoEscape(r'\linewidth'))
 
      
         # Add document title
@@ -125,10 +127,7 @@ class Prueba(object):
             with center_header.create(MiniPage(width=NoEscape(r"0.49\textwidth"),
                                     pos='c', align='c')) as title_wrapper:
                 title_wrapper.append(LargeText(bold(self.__nombre)))
-                '''
-                title_wrapper.append(MediumText(bold("Ingeniería en Computación e Informática")))
-                title_wrapper.append(LineBreak())
-        '''
+
         # Add document title
         with first_page.create(Head("R")) as right_header:
             with right_header.create(MiniPage(width=NoEscape(r"0.49\textwidth"),
@@ -162,36 +161,13 @@ class Prueba(object):
                 document_details.append("") # simple_page_number()
 
                 footer_table.add_row([branch_address, branch_address2, branch_address2, document_details])
-        '''
-        with first_page.create(Foot("L")) as footer_left:
-            footer_left.append(LineBreak())
-            footer_left.append("\n")
-            footer_left.append(MediumText(bold("Ingeniería en Computación e Informática")))
-
-        with first_page.create(Foot("R")) as footer_left:
-            footer_left.append(LineBreak())
-            footer_left.append("\n")
-            footer_left.append(MediumText(bold("Ingeniería en Computación e Informática")))
-        '''
 
         doc.preamble.append(first_page)
         # End first page style
 
                 
         ############################################
-        
-            
-        # Add customer information
-        '''
-        with doc.create(Tabu("X[l]")) as first_page_table:
-            customer = MiniPage(width=NoEscape(r"0.55\textwidth"), pos='t')
-            customer.append(LargeText(bold("Facultad de Ingeniería")))
-            customer.append("\n")
-            customer.append(MediumText(bold("Ingeniería en Computación e Informática")))
 
-            first_page_table.add_row([customer])
-            first_page_table.add_empty_row()
-        '''
 
     ####################################################
             # Add customer information
@@ -263,17 +239,6 @@ class Prueba(object):
         
         print("--------------------------ANTES DE DIR------------------------------")
 
-        '''
-        # Create directory
-        dirName = 'tests/' + str(self.__nombre) + " - " + self.get_fecha() + " - " + str(aleatorio)
-        
-        try:
-            # Create target Directory
-            os.mkdir(dirName)
-            print("Directory", dirName, "Created ") 
-        except FileExistsError:
-            print("Directory", dirName, "already exists")
-        '''
 
         try:
             # GENERANDO PDF
@@ -292,6 +257,7 @@ class Prueba(object):
         import pdfkit
         from jinja2 import Environment, FileSystemLoader
         from pathlib import Path
+        import platform
 
         unidadBonita = ""
         if self.__unidad == "unidad1":
@@ -319,7 +285,6 @@ class Prueba(object):
 
 
             html = template.render(prueba)
-            print(html)
 
             nombreFile = str(self.__nombre) + " - " + self.get_fecha() + " - " + str(aleatorio) + "PDFKit"
 
@@ -327,10 +292,17 @@ class Prueba(object):
             f.write(html)
             f.close()
 
-            p = Path("wkhtmltopdf/bin/wkhtmltopdf.exe").resolve()
-            print(p)
-            config = pdfkit.configuration(wkhtmltopdf=p)
-            pdfkit.from_file("tests/" + nombreFile + ".html", "tests/" + nombreFile + ".pdf", configuration=config)
+            if platform.system() == 'Windows':
+                p = Path("wkhtmltopdf/bin/wkhtmltopdf.exe").resolve()
+                print(p)
+                config = pdfkit.configuration(wkhtmltopdf=p)
+
+                pdfkit.from_file("tests/" + nombreFile + ".html", "tests/" + nombreFile + ".pdf", configuration=config)
+                
+            else:
+                pdfkit.from_string(html, 'tests/' + str(nombreFile) + '.pdf')
+                #pdfkit.from_file('tests/', nombreFile + '.html', '../tests/' + str(nombreFile) + '.pdf')
+
 
         except BaseException as e:
             env = Environment(loader=FileSystemLoader("../templates/", encoding="utf-8"))
@@ -347,7 +319,12 @@ class Prueba(object):
             f.write(html)
             f.close()
 
-            p = Path("../wkhtmltopdf/bin/wkhtmltopdf.exe").resolve()
-            print(p)
-            config = pdfkit.configuration(wkhtmltopdf=p)
-            pdfkit.from_file("../tests/" + nombreFile + ".html", "tests/" + nombreFile + ".pdf", configuration=config)
+            if platform.system() == 'Windows':
+                p = Path("../wkhtmltopdf/bin/wkhtmltopdf.exe").resolve()
+                print(p)
+                config = pdfkit.configuration(wkhtmltopdf=p)
+                pdfkit.from_file("../tests/" + nombreFile + ".html", "tests/" + nombreFile + ".pdf", configuration=config)
+
+            else:
+                pdfkit.from_string(html, '../tests/' + str(nombreFile) + '.pdf')
+                #pdfkit.from_file('../tests/', nombreFile + '.html', 'tests/' + str(nombreFile) + '.pdf')

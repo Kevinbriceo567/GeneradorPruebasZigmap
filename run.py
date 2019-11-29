@@ -70,6 +70,7 @@ nombreFile = ""
 
 # GENERACIÓN
 generate = ''
+aleatorio = 0
 
 # LOGIN
 logded = False
@@ -211,8 +212,17 @@ def download(filename):
 
     global aleatorio
     global nombreFile
+    global generate
+    import platform
 
-    p = Path("tests/" + filename + ".pdf").resolve()
+    if platform.system() == "Windows":
+        p = Path("tests/" + filename + ".pdf").resolve()
+
+    else:
+        if generate == 'latex':
+            p = Path(filename + ".pdf").resolve()
+        else:
+            p = Path('tests/' + filename + ".pdf").resolve()
 
     try:
         return send_file(p, attachment_filename=nombreFile + ".pdf")
